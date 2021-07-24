@@ -1,0 +1,50 @@
+
+	p {
+	  font-size: 15px;
+	  font-family: "Railway", sans-serif;
+	}
+	
+	/* CSS from https://www.w3schools.com/howto/howto_js_accordion.asp, 
+	   with some modifications */
+	.accordion {
+	  font-family: "Staatliches", sans-serif;
+	  font-weight: auto; 
+	  font-size: 25px;
+	  cursor: pointer;
+	  padding: 14px;
+	  width: 100%;
+	  text-align: left;
+	  border: none;
+	  outline: none;
+	  transition: 0.4s;
+	  background-color: #fff;
+	}
+	.subAccordion {
+	  font-family: "Montserrat", sans-serif;
+	  font-weight: auto; 
+	  font-size: 20px;
+	  cursor: pointer;
+	  padding: 14px;
+	  width: 100%;
+	  text-align: left;
+	  border: none;
+	  outline: none;
+	  transition: 0.4s;
+	  background-color: #fff;
+	}
+
+	/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	.active, .accordion:hover {
+	  background-color: #ccc;
+	}
+
+	.subAccordion:hover {
+	  background-color: #ddd;
+	}
+	/* Style the accordion panel. Note: hidden by default */
+	.panel {
+	  padding: 0 18px;
+	  background-color: white;
+	  display: none;
+	  overflow: hidden;
+	}

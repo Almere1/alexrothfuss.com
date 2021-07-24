@@ -1,0 +1,4 @@
+Compile with "make", run with "./gen" and follow prompts. 
+The test matrix will be stored in Result_Files/test.txt. 
+Result Matrices are in the same folder labeled "result.txt" for parallel and "result_serial.txt" for serial.
+Values returned are labeled aside from the last, "- # -", which indicates whether "result.txt" and "result_serial.txt" are the same. It will give "- 1 -" if so, "- 0 -" if not.
