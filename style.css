@@ -1,7 +1,22 @@
 
-	p {
-	  font-size: 15px;
-	  font-family: "Railway", sans-serif;
+	#name  {
+	  font-size: 50px;
+	  font-family: "Staatliches", sans-serif;
+	}
+
+	li, p, a {
+	  font-family: "Raleway", sans-serif;
+	  color: black;
+	}
+
+	h3 {
+	  font-family: "Montserrat", sans-serif;
+	}
+
+	a:hover {
+	  font-size: 20px;
+	  background-color: #eee;
+	  transition: 0.4s;
 	}
 	
 	/* CSS from https://www.w3schools.com/howto/howto_js_accordion.asp, 
