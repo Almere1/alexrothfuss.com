@@ -34,7 +34,7 @@
 	  transition: 0.4s;
 	  background-color: #fff;
 	}
-	.subAccordion {
+	.subAccordion1, .subAccordion2, .subAccordion3 {
 	  font-family: "Montserrat", sans-serif;
 	  font-weight: auto; 
 	  font-size: 20px;
@@ -53,7 +53,7 @@
 	  background-color: #ccc;
 	}
 
-	.subAccordion:hover {
+	.subAccordion1:hover, .subAccordion2:hover, .subAccordion3:hover {
 	  background-color: #ddd;
 	}
 	/* Style the accordion panel. Note: hidden by default */

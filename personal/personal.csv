@@ -1,0 +1,4 @@
+name	language	example
+Vines	Python	vines/vines.zip#Small program implementing pseudo L-Systems to simulate the growth of vines. Part of a wider art nouveau project that will be implemented into this website soon.
+Linked List	Rust	linkedlist/linked_list.zip#Rust-based linked list implementation. Not particularly impressive，but part of an attempt to get into Rust.
+Mouse Babies	C	mouseBabies/Babies.zip#Program to simulate growth of mouse populations，given two mice which die within X generations，and Y generations. Weirdly difficult problem to figure out mathematically. Here because it’s fun.
