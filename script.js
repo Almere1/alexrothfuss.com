@@ -85,7 +85,7 @@ function professionalPanelWriter(classData){
 	return '<button class="subAccordion3">'+classData.company+ " - " +classData.position+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
-				'<p style="width: 65%; ">'+
+				'<p>'+
 					classData.description+
 				'</p>'+
 			'</div>'+
@@ -96,7 +96,7 @@ function personalPanelWriter(classData){
 	return '<button class="subAccordion3">'+classData.name+ " - " +classData.language+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
-				'<p style="width: 65%; ">'+
+				'<p>'+
 					personalLinkAttach(classData.example, "personal")+
 				'</p>'+
 			'</div>'+
