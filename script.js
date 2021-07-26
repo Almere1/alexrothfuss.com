@@ -59,8 +59,17 @@ function toolList(tools){
 //
 // Input: Object
 // Output: String encoded as HTML panel
-function academicPanelWriter(classData){
-	return '<button class="subAccordion1">'+classData.name+' ⮞</button>'+
+function academicPanelWriter(classData, topic){
+	if (classData.name == "Other") return '<button class="subAccordion'+topic+'">'+classData.name+' ⮞</button>'+
+		'<div class="panel">'+
+			'<div style="float:left; width:65%">'+
+				'<p style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100%; padding-bottom: 1.5%; padding-right: 2.5%">'+
+					classData.description+
+				'</p>'+
+			'</div>'+
+		'</div>';
+ 
+	return '<button class="subAccordion'+topic+'">'+classData.name+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100%; padding-bottom: 1.5%; padding-right: 2.5%">'+
@@ -81,8 +90,8 @@ function academicPanelWriter(classData){
 		'</div>';
 }
 
-function professionalPanelWriter(classData){
-	return '<button class="subAccordion2">'+classData.company+ " - " +classData.position+' ⮞</button>'+
+function professionalPanelWriter(classData, topic){
+	return '<button class="subAccordion'+topic+'">'+classData.company+ " - " +classData.position+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p>'+
@@ -92,8 +101,8 @@ function professionalPanelWriter(classData){
 		'</div>';
 }
 
-function personalPanelWriter(classData){
-	return '<button class="subAccordion3">'+classData.name+ " - " +classData.language+' ⮞</button>'+
+function personalPanelWriter(classData, topic){
+	return '<button class="subAccordion'+topic+'">'+classData.name+ " - " +classData.language+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p>'+
@@ -110,8 +119,25 @@ function personalPanelWriter(classData){
 //  Output: -> to HTML
 function readCSVtoAccordions(callback){
 	var ncallback = 0;
-	d3.tsv('academic/academic.csv').then(_data => {
-	    var academic = document.getElementById("Academic");
+	function writeAccordion (topic, panelWriter) {
+		d3.tsv("data/"+topic+"/"+topic+".csv").then(_data => {
+		    var academic = document.getElementById(topic);
+		    for(var i = 0; i<_data.length; i++) academic.innerHTML += panelWriter(_data[i], topic);
+
+		    //accordionHandle, performed as callback to accomodate 
+		    //	panelwriter, which can be slow.
+
+		    callback('subAccordion'+topic);
+		});
+
+	}
+	writeAccordion("academic", academicPanelWriter);
+	writeAccordion("professional", professionalPanelWriter);
+	writeAccordion("personal", personalPanelWriter);
+
+	/*
+	d3.tsv('data/mic.csv').then(_data => {
+	    var academic = document.getElementById("academic");
 	    for(var i = 0; i<_data.length; i++) academic.innerHTML += academicPanelWriter(_data[i]);
 
 	    //accordionHandle, performed as callback to accomodate 
@@ -119,8 +145,8 @@ function readCSVtoAccordions(callback){
 
 	    callback("subAccordion1");
 	});
-	d3.tsv('professional/professional.csv').then(_data => {
-	    var academic = document.getElementById("Professional");
+	d3.tsv('data/professional/professional.csv').then(_data => {
+	    var academic = document.getElementById("professional");
 	    for(var i = 0; i<_data.length; i++) academic.innerHTML += professionalPanelWriter(_data[i]);
 
 	    //accordionHandle, performed as callback to accomodate 
@@ -128,15 +154,15 @@ function readCSVtoAccordions(callback){
 
 	    callback("subAccordion2");
 	});
-	d3.tsv('personal/personal.csv').then(_data => {
-	    var academic = document.getElementById("Personal");
+	d3.tsv('data/personal/personal.csv').then(_data => {
+	    var academic = document.getElementById("personal");
 	    for(var i = 0; i<_data.length; i++) academic.innerHTML += personalPanelWriter(_data[i]);
 
 	    //accordionHandle, performed as callback to accomodate 
 	    //	panelwriter, which can be slow.
 
 	    callback("subAccordion3");
-	});
+	});*/
 }
 
 
@@ -163,5 +189,21 @@ function accordionHandle(className){
 	} 
 }
 
+function handleLinkHover(classname){
+	var img = document.getElementById(classname).firstChild;
+	var original = img.src;
+	img.addEventListener("mouseover", function() {
+		img.src="images/"+classname+"grey.png";
+	});
+	img.addEventListener("mouseout", function() {
+		img.src="images/"+classname+"black.png";
+	});
+
+
+}
+
+
 readCSVtoAccordions(accordionHandle);
 accordionHandle("accordion");
+handleLinkHover('linkedin');
+handleLinkHover('github');

@@ -1,6 +1,7 @@
 
 	#name  {
-	  font-size: 50px;
+	  font-size: 80px;
+	  margin-bottom: 0px;
 	  font-family: "Staatliches", sans-serif;
 	}
 
@@ -34,7 +35,7 @@
 	  transition: 0.4s;
 	  background-color: #fff;
 	}
-	.subAccordion1, .subAccordion2, .subAccordion3 {
+	.subAccordionacademic, .subAccordionpersonal, .subAccordionprofessional {
 	  font-family: "Montserrat", sans-serif;
 	  font-weight: auto; 
 	  font-size: 20px;
@@ -53,7 +54,7 @@
 	  background-color: #ccc;
 	}
 
-	.subAccordion1:hover, .subAccordion2:hover, .subAccordion3:hover {
+	.subAccordionacademic:hover, .subAccordionpersonal:hover, .subAccordionprofessional:hover {
 	  background-color: #ddd;
 	}
 	/* Style the accordion panel. Note: hidden by default */
