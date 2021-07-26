@@ -82,7 +82,7 @@ function academicPanelWriter(classData){
 }
 
 function professionalPanelWriter(classData){
-	return '<button class="subAccordion3">'+classData.company+ " - " +classData.position+' ⮞</button>'+
+	return '<button class="subAccordion2">'+classData.company+ " - " +classData.position+' ⮞</button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p>'+
