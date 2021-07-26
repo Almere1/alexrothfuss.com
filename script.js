@@ -192,14 +192,14 @@ function accordionHandle(className){
 function handleLinkHover(classname){
 	var img = document.getElementById(classname).firstChild;
 	var original = img.src;
+	img.src="images/"+classname+"grey.png";
 	img.addEventListener("mouseover", function() {
 		img.src="images/"+classname+"grey.png";
 	});
 	img.addEventListener("mouseout", function() {
 		img.src="images/"+classname+"black.png";
 	});
-
-
+	img.src="images/"+classname+"black.png";
 }
 
 
