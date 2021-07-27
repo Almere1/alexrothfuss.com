@@ -11,11 +11,11 @@ function linkAttach(links, directory){
 	var linklen = 0;
 	linkList.forEach(function(link){
 			    if(link.length == 3){
-				full += "<p>"+link[1]+"</p> -<a href=/"+directory+'/'+link[0]+" download>Download</a> -<a href=/"+directory+'/'+link[2]+">View</a><br>, ";
+				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a> -<a href=data/"+directory+'/'+link[2]+">View</a><br>, ";
 				linklen+=1;
 			    }
 			    if(link.length == 2){
-				full += "<p>"+link[1]+"</p> -<a href=/"+directory+'/'+link[0]+" download>Download</a><br>, ";
+				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a><br>, ";
 				linklen+=1;
 			    }
 			});
