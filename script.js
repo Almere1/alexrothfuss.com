@@ -15,7 +15,7 @@ function linkAttach(links, directory){
 				linklen+=1;
 			    }
 			    if(link.length == 2){
-				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a><br>, ";
+				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a><br>$ ";
 				linklen+=1;
 			    }
 			});
