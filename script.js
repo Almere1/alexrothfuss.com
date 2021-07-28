@@ -11,7 +11,7 @@ function linkAttach(links, directory){
 	var linklen = 0;
 	linkList.forEach(function(link){
 			    if(link.length == 3){
-				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a> -<a href=data/"+directory+'/'+link[2]+">View</a><br>, ";
+				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a> -<a href=data/"+directory+'/'+link[2]+">View</a><br>$ ";
 				linklen+=1;
 			    }
 			    if(link.length == 2){
@@ -20,8 +20,8 @@ function linkAttach(links, directory){
 			    }
 			});
 	if (full.length == 0) return "No relevant examples."
-	else if (linklen == 1) return "Example:"+ toolList(full);
-	return "Examples:"+ toolList(full);
+	else if (linklen == 1) return "Example:"+ toolList(full, "$ ");
+	return "Examples:"+ toolList(full, "$ ");
 }
 
 function personalLinkAttach(links, directory){
@@ -36,8 +36,8 @@ function personalLinkAttach(links, directory){
 //
 //  Input: Encoded list
 //  Output: String encoded as HTML unordered list
-function toolList(tools){
-	var toolList = tools.split(", ");
+function toolList(tools, splitter){
+	var toolList = tools.split(splitter);
 	var full = "<ul>";
 	toolList.forEach(function(tool){ 
 		if(tool.length > 0){
@@ -60,7 +60,7 @@ function toolList(tools){
 // Input: Object
 // Output: String encoded as HTML panel
 function academicPanelWriter(classData, topic){
-	if (classData.name == "Other") return '<button class="subAccordion'+topic+'">'+classData.name+' ⮞</button>'+
+	if (classData.name == "Other") return '<button class="subAccordion'+topic+'">'+classData.name+' ></button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100%; padding-bottom: 1.5%; padding-right: 2.5%">'+
@@ -69,7 +69,7 @@ function academicPanelWriter(classData, topic){
 			'</div>'+
 		'</div>';
  
-	return '<button class="subAccordion'+topic+'">'+classData.name+' ⮞</button>'+
+	return '<button class="subAccordion'+topic+'">'+classData.name+' ></button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100%; padding-bottom: 1.5%; padding-right: 2.5%">'+
@@ -84,14 +84,14 @@ function academicPanelWriter(classData, topic){
 					'Instructor: '+ classData.professor+
 				'</p>'+
 				'<p>'+
-					'Tools: '+ toolList(classData.tools)+
+					'Tools: '+ toolList(classData.tools, ", ")+
 				'</p>'+
 			'</div>'+
 		'</div>';
 }
 
 function professionalPanelWriter(classData, topic){
-	return '<button class="subAccordion'+topic+'">'+classData.company+ " - " +classData.position+' ⮞</button>'+
+	return '<button class="subAccordion'+topic+'">'+classData.company+ " - " +classData.position+'  ></button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p>'+
@@ -102,7 +102,7 @@ function professionalPanelWriter(classData, topic){
 }
 
 function personalPanelWriter(classData, topic){
-	return '<button class="subAccordion'+topic+'">'+classData.name+ " - " +classData.language+' ⮞</button>'+
+	return '<button class="subAccordion'+topic+'">'+classData.name+ " - " +classData.language+' ></button>'+
 		'<div class="panel">'+
 			'<div style="float:left; width:65%">'+
 				'<p>'+
@@ -179,10 +179,10 @@ function accordionHandle(className){
 	    local = this.textContent;
 	    var panel = this.nextElementSibling;
 	    if (panel.style.display === "block") {
-	      this.textContent = local.slice(0, -1) + "⮞";
+	      this.textContent = local.slice(0, -1) + ">";
 	      panel.style.display = "none";
 	    } else {
-	      this.textContent = local.slice(0, -1) + "⮟";
+	      this.textContent = local.slice(0, -1) + "|";
 	      panel.style.display = "block";
 	    }
 	  });
