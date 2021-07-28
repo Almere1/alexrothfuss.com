@@ -11,7 +11,7 @@ function linkAttach(links, directory){
 	var linklen = 0;
 	linkList.forEach(function(link){
 			    if(link.length == 3){
-				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a> -<a href=data/"+directory+'/'+link[2]+">View</a><br>$ ";
+				full += "<p>"+link[1]+"</p> -<a href=data/"+directory+'/'+link[0]+" download>Download</a> -<a href=data/"+directory+'/'+link[2]+" target='_blank'>View</a><br>$ ";
 				linklen+=1;
 			    }
 			    if(link.length == 2){
@@ -26,7 +26,7 @@ function linkAttach(links, directory){
 
 function personalLinkAttach(links, directory){
 	var linkList = links.split("#");
-	if(linkList.length == 2) return "<p>"+linkList[1]+"</p><li><ul><a href=/"+directory+'/'+linkList[0]+" download>Download</a></ul></li>"; 
+	if(linkList.length == 2) return "<p>"+linkList[1]+"</p><ul><li><a href=data/"+directory+'/'+linkList[0]+" download>Download</a></li></ul>"; 
 	else return "No relevant examples."; 
 	
 }
