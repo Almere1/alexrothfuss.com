@@ -182,7 +182,7 @@ function accordionHandle(className){
 	      this.textContent = local.slice(0, -1) + ">";
 	      panel.style.display = "none";
 	    } else {
-	      this.textContent = local.slice(0, -1) + "|";
+	      this.textContent = local.slice(0, -1) + "-";
 	      panel.style.display = "block";
 	    }
 	  });
